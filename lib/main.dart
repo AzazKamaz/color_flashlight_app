@@ -30,7 +30,6 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   Color _color = randomColor();
-  Color _colorNext = randomColor();
 
   static Color randomColor() {
     return Colors.primaries[Random().nextInt(Colors.primaries.length)];
@@ -38,24 +37,18 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: GestureDetector(
-        onTap: () {
-          setState(() {
-            _color = _colorNext;
-            _colorNext = randomColor();
-          });
-        },
-        child: AnimatedContainer(
-          decoration: BoxDecoration(
-            color: _color,
-          ),
-          duration: const Duration(milliseconds: 500),
-          curve: Curves.fastOutSlowIn,
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          _color = randomColor();
+        });
+      },
+      child: AnimatedContainer(
+        decoration: BoxDecoration(
+          color: _color,
         ),
+        duration: const Duration(milliseconds: 500),
+        curve: Curves.fastOutSlowIn,
       ),
     );
   }

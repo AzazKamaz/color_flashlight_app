@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="me.azazkamaz.color_flashlight_screen">
    <application
-        android:label="color_flashlight_screen"
+        android:label="Color Flashlight Screen"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
